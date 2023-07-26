@@ -1,5 +1,36 @@
 # tele4642Project2023T2
 
+## Preparation Steps:
+
+1. Install Mininet and Ryu in Ubuntu
+````shell
+sudo apt install mininet
+pip install ryu
+````
+2. Install dash, dash_raq and corrsponding dependencies for display the statistic
+````shell
+pip install dash, dash_raq
+````
+
+## Known Issues: If similar issue of ryu-manager occurs:
+````python
+Traceback (most recent call last):
+  File "/home/shuai/miniconda3/envs/myenv/bin/ryu-manager", line 5, in <module>
+    from ryu.cmd.manager import main
+  File "/home/shuai/miniconda3/envs/myenv/lib/python3.8/site-packages/ryu/cmd/manager.py", line 33, in <module>
+    from ryu.app import wsgi
+  File "/home/shuai/miniconda3/envs/myenv/lib/python3.8/site-packages/ryu/app/wsgi.py", line 109, in <module>
+    class _AlreadyHandledResponse(Response):
+  File "/home/shuai/miniconda3/envs/myenv/lib/python3.8/site-packages/ryu/app/wsgi.py", line 111, in _AlreadyHandledResponse
+    from eventlet.wsgi import ALREADY_HANDLED
+ImportError: cannot import name 'ALREADY_HANDLED' from 'eventlet.wsgi' (/home/shuai/miniconda3/envs/myenv/lib/python3.8/site-packages/eventlet/wsgi.py)
+````
+
+Try to use python3.8 and follow the steps:
+````shell
+pip install eventlet==0.30.2
+````
+
 ## To run the program, using the following steps:
 
 1. Start the Controller `project_controller.py`.
@@ -28,14 +59,11 @@ sudo python3 dashboard.py
 
 
 
-## The function of the programs are listed below:
+## The functions of each program are listed below:
 
  1. generator.py randomly creates a csv file containing fake network traffic statistics.
-
  2. dashboard.py gives a WebUI running on localhost.
- 3. netstats.csv consists of 4 columns: ['Source','Type','Destination','Size'] -> ['src_ip_addr','Protocol','dst_ip_addr','# of bytes'] ?
-
-
+ 3. netstats.csv consists of 4 columns:['src_ip_addr','Protocol','dst_ip_addr','# of bytes'] 
  4. project_topo.py creates the Linear topology with one switch and two hosts.
  5. project_controller.py is the RyuController for generate flow entries by mac-address-learning.
  6. traffic_capture.py captures the generated TCP/UDP packets as netstats.pcap and store the info of packets to the file netstats.csv.
