@@ -7,12 +7,12 @@
 sudo apt install mininet
 pip install ryu
 ````
-2. Install dash, dash_raq and corrsponding dependencies for display the statistic
+2. Install dash, dash_raq and corrsponding dependencies for displaying the statistic
 ````shell
 pip install dash, dash_raq
 ````
 
-## Known Issues: If similar issue of ryu-manager occurs:
+## A Known Issues: If the ImportError of ryu-manager raised:
 ````python
 Traceback (most recent call last):
   File "/home/shuai/miniconda3/envs/myenv/bin/ryu-manager", line 5, in <module>
@@ -62,8 +62,8 @@ sudo python3 dashboard.py
 ## The functions of each program are listed below:
 
  1. generator.py randomly creates a csv file containing fake network traffic statistics.
- 2. dashboard.py gives a WebUI running on localhost.
- 3. netstats.csv consists of 4 columns:['src_ip_addr','Protocol','dst_ip_addr','# of bytes'] 
- 4. project_topo.py creates the Linear topology with one switch and two hosts.
+ 2. dashboard.py gives a WebUI running on localhost. It reads netstats.csv every 5 seconds and refreshes the web page.
+ 3. netstats.csv consists of 4 columns:['src_ip_addr','Protocol','dst_ip_addr','# of bytes'].
+ 4. project_topo.py creates the Linear topology with one switch and two hosts. TCP and UDP packets are generated using `iperf`
  5. project_controller.py is the RyuController for generate flow entries by mac-address-learning.
  6. traffic_capture.py captures the generated TCP/UDP packets as netstats.pcap and store the info of packets to the file netstats.csv.
