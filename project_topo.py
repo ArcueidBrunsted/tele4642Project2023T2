@@ -49,7 +49,7 @@ def TopoStart():
     # Start TCP traffic Generation
     topo.run_iperf("TCP", h1, h2, 5)
     time.sleep(2)
-    # Start TCP traffic Generation
+    # Start UDP traffic Generation
     topo.run_iperf("UDP", h1, h2, 5)
     time.sleep(2)
 
