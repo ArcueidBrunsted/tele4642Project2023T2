@@ -53,5 +53,6 @@ class Traffic():
 
 if __name__ == "__main__":
     traffic = Traffic()
-    capture = traffic.capture_traffic(20, "s1-eth1")  # 20s for sniffing with interface as s1-eth1 
+    capture = traffic.capture_traffic(15, "s1-eth1")  # 15s for sniffing with interface as s1-eth1 
     traffic.packet_handling(capture)
+

@@ -45,12 +45,13 @@ def TopoStart():
 
     h1, h2 = net.get('h1', 'h2')
     # print(ip_addr_h1)
+    duration = 2
 
     # Start TCP traffic Generation
-    topo.run_iperf("TCP", h1, h2, 5)
+    topo.run_iperf("TCP", h1, h2, duration)
     time.sleep(2)
-    # Start UDP traffic Generation
-    topo.run_iperf("UDP", h1, h2, 5)
+    # Start TCP traffic Generation
+    topo.run_iperf("UDP", h1, h2, duration)
     time.sleep(2)
 
     CLI(net)
