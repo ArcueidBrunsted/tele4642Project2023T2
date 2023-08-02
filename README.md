@@ -51,10 +51,10 @@ sudo python3 project_topo.py
 sudo python3 traffic_capture.py
 ````
 
-4. Running the `dashboard.py` to get the statistic of TCP/UDP packets.
+4. Running the `dashboard_4plots.py` to get the statistic of TCP/UDP packets.
 
 ````shell
-sudo python3 dashboard.py
+sudo python3 dashboard_4plots.py
 ````
 
 
@@ -62,7 +62,7 @@ sudo python3 dashboard.py
 ## The functions of each program are listed below:
 
  1. generator.py randomly creates a csv file containing fake network traffic statistics.
- 2. dashboard.py gives a WebUI running on localhost. It reads netstats.csv every 5 seconds and refreshes the web page.
+ 2. dashboard_4plots.py gives a WebUI running on localhost. It reads netstats.csv every 5 seconds and refreshes the web page.
  3. netstats.csv consists of 4 columns:['src_ip_addr','Protocol','dst_ip_addr','# of bytes'].
  4. project_topo.py creates the Linear topology with one switch and two hosts. TCP and UDP packets are generated using `iperf`
  5. project_controller.py is the RyuController for generate flow entries by mac-address-learning.
